@@ -26,7 +26,10 @@ public:
     ChatBot();                     // constructor WITHOUT memory allocation
     ChatBot(std::string filename); // constructor WITH memory allocation
     ~ChatBot();
-
+    ChatBot(const ChatBot& source);
+    ChatBot& operator=(const ChatBot& source);
+    ChatBot(ChatBot&& source);
+    ChatBot& operator=(ChatBot&& source);
     //// STUDENT CODE
     ////
 
@@ -35,7 +38,7 @@ public:
 
     // getters / setters
     void SetCurrentNode(GraphNode *node);
-    void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
+    void SetRootNode(GraphNode * rootNode) { _rootNode = rootNode; }
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
     wxBitmap *GetImageHandle() { return _image; }
 
